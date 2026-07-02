@@ -1,0 +1,590 @@
+body {
+    margin: 0;
+    height: 100vh;
+    
+    font-family: Arial;
+}
+
+/* background */
+.greeting {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 60px;
+    box-sizing: border-box;
+}
+
+/* NEW wrapper to control spacing properly */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: -80px;   /* 👈 controls closeness */
+}
+
+/* 📄 PAPER */
+.paper {
+    width: 1200px;
+    flex-shrink: 0;
+    position: relative;
+    margin-right: -350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transform: translateX(-200px);
+}
+
+.paper-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* text */
+.paper h1 {
+    position: absolute;
+    font-size: 4rem;
+    color: #2b2b2b;
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    padding: 60px;
+}
+
+/* 📸 POLAROID */
+.polaroid {
+    width: 1200px;
+    flex-shrink: 0;
+    margin-left: -200px;
+    height: auto;
+
+    opacity: 0;
+    transform: translateX(200px) rotate(8deg);
+}
+
+/* ANIMATION */
+.slide-paper {
+    animation: paperIn 1.2s ease-out forwards;
+}
+
+@keyframes paperIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-polaroid {
+    animation: polaroidIn 1.2s ease-out forwards;
+}
+
+@keyframes polaroidIn {
+    to {
+        transform: translateX(0) rotate(5deg);
+        opacity: 1;
+    }
+}
+
+#typing {
+    white-space: pre-line;
+}
+
+/* Section 2 */
+.section2 {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("calendarbg.jpg"); 
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container2 {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+          
+}
+
+.calendar{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+.calendar img {
+    width: 1100px;   /* increase size here */
+    max-width: none; /* stop it shrinking */
+    height: auto;
+}
+
+.text-side{
+    flex:1;
+    display:flex;
+    flex-direction:column;  
+    justify-content:center;
+    align-items:center;
+}
+
+#typing2{
+    font-family:'Great Vibes', cursive;
+    font-size:5rem;
+    color:#ffd4e5;
+    text-align:center;
+    line-height:1.2;
+    white-space:pre-line;
+    transform: translateX(-180px);
+   
+}
+/*numbers*/
+.numbers{
+    margin-top:10px;
+    display:flex;
+    justify-content:center;
+    gap:0px;
+     transform: translateX(-150px); /* move left */
+}
+
+.num{
+    width:180px;
+    height: auto;
+    display:block;
+    opacity:0;
+}
+.num3{
+    margin-left: -60px;
+}
+/* play animation */
+.showNumbers .num2{
+    animation:
+        popIn .4s forwards,
+        stopMotion1 .8s infinite steps(4);
+}
+
+.showNumbers .num3{
+    animation:
+        popIn .4s .2s forwards,
+        stopMotion2 .8s .2s infinite steps(4);
+}
+
+/* appear */
+
+@keyframes popIn{
+
+    from{
+        opacity:0;
+        transform:scale(.6);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/* scrapbook movement */
+
+@keyframes stopMotion1{
+
+    0%{
+        transform:rotate(-6deg) translateY(0);
+    }
+
+    25%{
+        transform:rotate(-4deg) translateY(-3px);
+    }
+
+    50%{
+        transform:rotate(-7deg) translateX(2px);
+    }
+
+    75%{
+        transform:rotate(-5deg) translateY(2px);
+    }
+
+    100%{
+        transform:rotate(-6deg);
+    }
+
+}
+
+@keyframes stopMotion2{
+
+    0%{
+        transform:rotate(5deg);
+    }
+
+    25%{
+        transform:rotate(7deg) translateY(2px);
+    }
+
+    50%{
+        transform:rotate(4deg) translateX(-2px);
+    }
+
+    75%{
+        transform:rotate(6deg) translateY(-3px);
+    }
+
+    100%{
+        transform:rotate(5deg);
+    }
+
+}
+/* Section 3 */
+.section3 {
+    height: 100vh;
+    width: 100%;
+    background-image: url("cakebg.jpg");
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+}
+
+/* ✍️ CURSIVE TEXT */
+.cake-text {
+    font-family: 'Great Vibes', cursive;
+    color: #0b2a5b; 
+    font-size: 72px;
+    min-height: 60px;
+}
+
+/* 🎂 cake hidden initially */
+.cake-wrapper {
+    margin-top: 20px;
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+.cake-img {
+    width: min(1000px, 95vw);
+}
+
+/* 🎉 POP ANIMATION */
+.cake-wrapper.show {
+    animation: popIn 0.8s ease forwards;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.blow-text {
+    margin-top: 20px;
+    font-size: 36px;
+    opacity: 0.7;
+}
+/* Section 4 */
+/* ===== SECTION 4 ===== */
+.section4 {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("flowerbg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 80px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* ===== FLOWER SIDE ===== */
+.flower-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flower {
+    width: min(1100px, 95vw);
+    height: auto;
+
+    opacity: 0;
+    transform: translateX(-250px) scale(.6);
+
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,.25));
+}
+
+/* ===== LETTER SIDE ===== */
+.letter-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter {
+    width: min(650px, 42vw);
+    height: 700px;               /* Fixed height */
+    background: #fffdf5;
+
+    border: 8px solid #f6ecd2;
+    border-radius: 12px;
+
+    padding: 50px;
+    box-sizing: border-box;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.25),
+        inset 0 0 20px rgba(255,255,255,.5);
+
+    opacity: 0;
+    transform: translateX(250px) scale(.6);
+
+    margin-left: -120px;
+
+    position: relative;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar (optional) */
+.letter::-webkit-scrollbar {
+    width: 6px;
+}
+
+.letter::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.15);
+    border-radius: 20px;
+}
+
+.letter h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 64px;
+    color: #8d4b67;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#letterTyping {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    line-height: 1.9;
+    color: #4d3b32;
+
+    white-space: pre-line;
+}
+
+/* Blinking cursor */
+#letterTyping::after {
+    content: "|";
+    animation: blink .8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Notebook lines */
+.letter::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            transparent,
+            transparent 34px,
+            rgba(0,0,255,.08) 35px
+        );
+
+    pointer-events: none;
+}
+
+/* ===== POP ANIMATIONS ===== */
+.show-flower {
+    animation: popLeft 1s ease forwards;
+}
+
+.show-letter {
+    animation: popRight 1s ease forwards;
+}
+
+@keyframes popLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes popRight {
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+/* =======================
+   MOBILE RESPONSIVE FIX
+   ======================= */
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* ===== SECTION 1 ===== */
+    .greeting {
+        padding: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .paper {
+        width: 90vw;
+        margin-right: 0;
+        transform: translateX(0);
+    }
+
+    .polaroid {
+        width: 90vw;
+        margin-left: 0;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    .paper h1 {
+        font-size: 2.2rem;
+        padding: 20px;
+    }
+
+    /* ===== SECTION 2 ===== */
+    .container2 {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .calendar img {
+        width: 90vw;
+    }
+
+    #typing2 {
+        transform: none;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .numbers {
+        transform: none;
+        gap: 10px;
+    }
+
+    .num {
+        width: 90px;
+    }
+
+    .num3 {
+        margin-left: 0;
+    }
+
+    /* ===== SECTION 3 ===== */
+    .cake-text {
+        font-size: 40px;
+    }
+
+    .cake-img {
+        width: 90vw;
+    }
+
+    .blow-text {
+        font-size: 20px;
+        padding: 0 20px;
+    }
+
+/* ===== SECTION 4 ===== */
+
+.section4 {
+    height: auto;
+    min-height: 100vh;
+
+    padding: 50px 20px;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Flower */
+.flower-side {
+    width: 100%;
+}
+
+.flower {
+    width: 95vw;
+    max-width: 500px;
+
+    transform: translateX(0) scale(.6);
+}
+
+/* Letter */
+.letter-side {
+    width: 100%;
+}
+
+.letter {
+    width: 90%;
+    max-width: 500px;
+
+    min-height: auto;
+
+    margin-left: 0;
+
+    padding: 25px;
+}
+
+.letter h1 {
+    font-size: 42px;
+    text-align: center;
+}
+
+.letter p {
+    font-size: 10px;
+    line-height: 1.7;
+}
+}
